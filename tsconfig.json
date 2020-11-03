@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    // 此处设置为node,才能解析import xx from 'xx'
+    "moduleResolution": "node",
+    "target": "es5",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "sourceMap": false,
+    "declaration": true,
+    // // 声明文件路径
+    "declarationDir": "./lib",
+    "outDir": "./lib",
+    "typeRoots": ["./node_modules/@types/", "./typings"]
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "mock",
+    "temp",
+    "src/web/**/examples"
+  ]
+}
