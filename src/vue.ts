@@ -1,8 +1,6 @@
 import * as path from 'path';
 import * as fs from 'fs-extra';
 import * as glob from 'glob';
-// @ts-ignore
-import * as VueLoaderPlugin from 'vue-loader/lib/plugin';
 
 export default async (api: any) => {
   const vueUrl =
@@ -199,7 +197,7 @@ export default async (api: any) => {
           };
         });
 
-      config.plugin('vue-loader').use(VueLoaderPlugin);
+      config.plugin('vue-loader').use(require.resolve('vue-loader/lib/plugin'));
 
       config.optimization.splitChunks({
         cacheGroups: {
@@ -240,4 +238,8 @@ export default async (api: any) => {
       });
     });
   }
+
+  api.onExit(() => {
+    // do something
+  });
 };
